@@ -4,12 +4,19 @@ function processAuthRes(authRes){
     if(authRes.success){
         location.reload();
     } else{
-        alert(authRes.error);
+        form.setLoginErrorMessage(authRes.error);
+    }
+}
+function processRegistrationRes(authRes){
+    if(authRes.success){
+        location.reload();
+    } else{
+        form.setRegisterErrorMessage(authRes.error);
     }
 }
 form.loginFormCallback = (formData) => {
     ApiConnector.login(formData, processAuthRes);
 }
 form.registerFormCallback = (formData) => {
-    ApiConnector.login(formData, processAuthRes);
+    ApiConnector.register(formData, processRegistrationRes);
 }

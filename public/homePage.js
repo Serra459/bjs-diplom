@@ -44,9 +44,10 @@ logoutButton.action = () =>{
     ApiConnector.logout(processLogout);
 }
 ApiConnector.current(processCurrent);
+ApiConnector.getStocks(updateCurrency);
 setInterval(() => {
     ApiConnector.getStocks(updateCurrency);
-}, 1000)
+}, 60000)
 moneyManager.addMoneyCallback = (data) =>{
     ApiConnector.addMoney(data, processMoneyOperation);
 }
